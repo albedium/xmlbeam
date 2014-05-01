@@ -27,8 +27,8 @@ import org.xmlbeam.util.intern.duplex.org.w3c.xqparser.XParser;
 public class TestXPathParsing {
     @Test
     public void testXPathParsing() throws Exception {
-        String xpath = "let $incr :=       function($n) {$n+1}  \n return $incr(2)";
-        //String xpath = "//hoo";
+        //String xpath = "let $incr :=       function($n) {$n+1}  \n return $incr(2)";
+        String xpath = "//hoo";
         XParser parser = new XParser(new StringReader(xpath));
         SimpleNode node = parser.START();
         node.dump("");
