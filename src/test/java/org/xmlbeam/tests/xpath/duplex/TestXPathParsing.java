@@ -31,6 +31,7 @@ public class TestXPathParsing {
         //String xpath = "let $incr :=       function($n) {$n+1}  \n return $incr(2)";
        // String xpath = "/hoo[id=2]/foo[@name='huhu']/booo";
         String xpath = "descendant::hoo";
+
         XParser parser = new XParser(new StringReader(xpath));
         XBDuplexNode node = parser.START();
         for (XBDuplexNode child:node.getChildren()) {
