@@ -21,7 +21,6 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.w3c.dom.Node;
 import org.xmlbeam.util.intern.ReflectionHelper;
 
 /**

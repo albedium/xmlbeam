@@ -19,6 +19,7 @@ import java.io.StringReader;
 
 import org.junit.Test;
 import org.xmlbeam.util.intern.duplex.org.w3c.xqparser.SimpleNode;
+import org.xmlbeam.util.intern.duplex.org.w3c.xqparser.XBDuplexNode;
 import org.xmlbeam.util.intern.duplex.org.w3c.xqparser.XParser;
 
 /**
@@ -27,10 +28,15 @@ import org.xmlbeam.util.intern.duplex.org.w3c.xqparser.XParser;
 public class TestXPathParsing {
     @Test
     public void testXPathParsing() throws Exception {
-        String xpath = "let $incr :=       function($n) {$n+1}  \n return $incr(2)";
-        //String xpath = "//hoo";
+        //String xpath = "let $incr :=       function($n) {$n+1}  \n return $incr(2)";
+       // String xpath = "/hoo[id=2]/foo[@name='huhu']/booo";
+        String xpath = "descendant::hoo";
         XParser parser = new XParser(new StringReader(xpath));
-        SimpleNode node = parser.START();
+        XBDuplexNode node = parser.START();
+        for (XBDuplexNode child:node.getChildren()) {
+            
+        }
+        System.out.println(xpath);
         node.dump("");
     }
 }

@@ -13,24 +13,22 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.xmlbeam.tests.xpath.duplex;
+package org.xmlbeam.util.intern.duplex.org.w3c.xqparser;
 
-import java.io.StringReader;
-
-import org.junit.Test;
-import org.xmlbeam.util.intern.duplex.org.w3c.xqparser.ParseException;
-import org.xmlbeam.util.intern.duplex.org.w3c.xqparser.SimpleNode;
-import org.xmlbeam.util.intern.duplex.org.w3c.xqparser.XParser;
+import org.xmlbeam.util.intern.duplex.Step.AXIS;
 
 /**
- * @author sven
  */
-public class TestPreprocessor {
-    @Test
-    public void testPreprocessor() throws ParseException {
-        String xpath = "//";
-        XParser parser = new XParser(new StringReader(xpath));
-        SimpleNode node = parser.START();
-        node.dump(" ");
+public abstract class AbstractAxisNode extends XBDuplexNode {
+
+    public AbstractAxisNode(int i) {
+        super(i);
     }
+
+    public AbstractAxisNode(XParser p, int i) {
+        super(p, i);
+    }
+
+     public abstract AXIS getAxis();
+ 
 }
