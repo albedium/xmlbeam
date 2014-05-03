@@ -16,7 +16,6 @@
 package org.xmlbeam.util.intern.duplex;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -26,24 +25,24 @@ import java.util.List;
 public class Step {
 
     public enum AXIS {
-        ROOT,CHILD,PARENT,SELF,ANCESTOR,ANCESTOR_OR_SELF,DESCENDANT,DESCENDANT_OR_SELF,FOLLOWING,FOLLOWING_SIBLIBNG,PRECEDING,PRECEDING_SIBLING,ATTRIBUTE,NAMESPACE
+        ROOT, CHILD, PARENT, SELF, ANCESTOR, ANCESTOR_OR_SELF, DESCENDANT, DESCENDANT_OR_SELF, FOLLOWING, FOLLOWING_SIBLIBNG, PRECEDING, PRECEDING_SIBLING, ATTRIBUTE, NAMESPACE
     }
-    
+
     private final AXIS axis;
-    private final NodeTest nodeTest;
-    private final List<Predicate> predicates=new LinkedList<Predicate>();
-    
-    public Step(final AXIS axis,final NodeTest nodeTest,final Collection<? extends Predicate> predicates) {
-        this.axis=axis;
-        this.nodeTest=nodeTest;
+    private final DuplexNodeTest nodeFilter;
+    private final List<Predicate> predicates = new LinkedList<Predicate>();
+
+    public Step(final AXIS axis, final DuplexNodeTest nodeFilter, final Collection<? extends Predicate> predicates) {
+        this.axis = axis;
+        this.nodeFilter = nodeFilter;
         this.predicates.addAll(predicates);
     }
 
     /**
      * @param nodeTest2
      */
-    public Step(final NodeTest nodeTest) {
-        this.axis=AXIS.CHILD;
-        this.nodeTest=nodeTest;
+    public Step(final DuplexNodeTest nodeTest) {
+        this.axis = AXIS.CHILD;
+        this.nodeFilter = nodeTest;
     }
 }

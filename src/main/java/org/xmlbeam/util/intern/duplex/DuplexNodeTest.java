@@ -15,15 +15,14 @@
  */
 package org.xmlbeam.util.intern.duplex;
 
-import java.util.List;
-
+import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
 
 /**
  *
  */
-public interface NodeTest {
-    List<Node> resolve(Node target);
-    
+public interface DuplexNodeTest {
+
+    Node apply(Document doc, Node target);
+
 }
